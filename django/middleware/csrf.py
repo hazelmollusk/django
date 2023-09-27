@@ -179,7 +179,7 @@ class CsrfViewMiddleware(MiddlewareMixin):
 
     @cached_property
     def allowed_origins_exact(self):
-        return {origin for origin in settings.CSRF_TRUSTED_ORIGINS if "*" not in origin}
+        return [origin for origin in settings.CSRF_TRUSTED_ORIGINS if "*" not in origin]
 
     @cached_property
     def allowed_origin_subdomains(self):
